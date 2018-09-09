@@ -1,0 +1,4 @@
+#!/bin/sh
+
+node "target/cli/lighthouse-ignore.js" "$@"
+exit $?

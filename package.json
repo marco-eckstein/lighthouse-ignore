@@ -1,0 +1,59 @@
+{
+  "name": "@marco-eckstein/lighthouse-ignore",
+  "version": "0.0.0",
+  "description": "A wrapper around Lighthouse that allows you to ignore some audits",
+  "main": "target/src/index.js",
+  "bin": "target/src/cli/lighthouse-ignore.js",
+  "types": "target/src/index.d.ts",
+  "scripts": {
+    "_clean": "rimraf target",
+    "_compile": "tsc",
+    "_compile:watch": "tsc --watch",
+    "_lint": "tslint src/**/*.ts",
+    "_lint:watch": "chokidar src/**/*.ts --command \"npm run _lint\" --throttle 2000",
+    "_test": "jasmine target/src/main/*.js --helper=target/src/test/helper.js --stop-on-failure=",
+    "_test:watch": "chokidar target/src/main/*.js --command \"npm run _test\" --throttle 2000",
+    "pretest": "npm run _clean && npm run _compile && npm run _lint",
+    "test": "npm run _test",
+    "prepack": "npm test",
+    "start": "npm test && concurrently \"npm run _compile:watch\" \"npm run _lint:watch\" \"npm run _test:watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-eckstein/lighthouse-ignore.git"
+  },
+  "keywords": [
+    "lighthouse",
+    "ignore",
+    "baseline",
+    "audit"
+  ],
+  "author": "Marco Eckstein <marco.eckstein@gmx.de>",
+  "contributors": [
+    "Marco Eckstein <marco.eckstein@gmx.de>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marco-eckstein/lighthouse-ignore/issues"
+  },
+  "homepage": "https://github.com/marco-eckstein/lighthouse-ignore#readme.md",
+  "dependencies": {
+    "chrome-launcher": "^0.10.2",
+    "cli-color": "^1.3.0",
+    "commander": "^2.17.1",
+    "core-js": "^2.5.4",
+    "dateformat": "^3.0.3",
+    "lighthouse": "3.0.3",
+    "source-map-support": "^0.5.9",
+    "temp-dir": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "chokidar-cli": "^1.2.1",
+    "concurrently": "^3.6.1",
+    "jasmine": "^2.8.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  }
+}
