@@ -1,4 +1,4 @@
 #!/bin/sh
 
-node "target/cli/lighthouse-ignore.js" "$@"
+node "target/src/cli/lighthouse-ignore.js" "$@"
 exit $?
