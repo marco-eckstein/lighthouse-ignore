@@ -16,7 +16,8 @@
     "pretest": "npm run _clean && npm run _compile && npm run _lint",
     "test": "npm run _test",
     "prepack": "npm test",
-    "start": "npm test && concurrently \"npm run _compile:watch\" \"npm run _lint:watch\" \"npm run _test:watch\""
+    "start": "npm test && concurrently \"npm run _compile:watch\" \"npm run _lint:watch\" \"npm run _test:watch\"",
+    "standard-version": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,7 @@
     "concurrently": "^3.6.1",
     "jasmine": "^2.8.0",
     "rimraf": "^2.6.2",
+    "standard-version": "^7.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   }
